@@ -47,7 +47,7 @@ def flatten_text_in_td(root):
 
     if root.tail is not None:
         text += root.tail + " "
-    return text.strip().replace("\t", "")
+    return str(text.strip().replace("\t", ""))
 
 
 def table_to_beautifultable(root):

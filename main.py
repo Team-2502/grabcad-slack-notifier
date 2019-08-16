@@ -12,8 +12,9 @@ IFTTT_OUTBOUND_URL = f"https://maker.ifttt.com/trigger/grabcad_email_parsed/with
 @app.route('/', methods=['POST'])
 def handle_grabcad_email():
     try:
-        slack_message = parse_email(request.data.decode("utf-8"))
-
+        unescaped_email = request.data.decode('utf-8').encode('utf-8').decode('unicode_escape')
+        slack_message = parse_email(unescaped_email)
+        print(slack_message)
         requests.post(IFTTT_OUTBOUND_URL, json={'value1': slack_message})
 
         return '', 204
