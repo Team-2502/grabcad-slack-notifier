@@ -1,4 +1,4 @@
-#grabcad-slack-notifier
+# grabcad-slack-notifier
 
 A hacky solution to put GrabCAD notifications in Slack. Supposed to run on heroku.
 
